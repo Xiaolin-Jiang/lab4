@@ -1,0 +1,16 @@
+Package: lab4
+Type: Package
+Title: lab4
+Version: 1.0
+Date: 2021-09-12
+Author: Xiaolin Jiang
+Maintainer: Who to complain to <xiaji389@student.liu.se>
+Description: calculate the statistics using ordinary least squares
+License: GPL-2
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.1
+Suggests: testthat
+NeedsCompilation: no
+Packaged: 2021-08-28 18:42:30 UTC; 33817
+Depends: R (>= 3.5.0)
