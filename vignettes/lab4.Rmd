@@ -9,17 +9,6 @@ vignette: >
 
 
 
-#>```{r, include = FALSE}
-#>knitr::opts_chunk$set(
-#>  collapse = TRUE,
-#>  comment = "#>"
-#>)
-#>```
-
-```{r setup}
-library(lab4)
-```
-
 
 # Overview
 lab4 is a package to handle linear regression models. It can handle functions such as print(), plot(), resid(), pred(), coef() and summary().
