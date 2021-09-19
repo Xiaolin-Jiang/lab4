@@ -45,12 +45,19 @@ linreg <- setRefClass("linreg",
                           t_beta <<- beta/sqrt(diag(variance_beta))
                         },
 
-                        show = function() {
-                          cat("Call:\n")
-                          cat("linreg(formula =",Formulaf,"data=", df_name,")\n\n") #lm(formula = Petal.Length ~ Species, data = iris)
-                          cat("Coefficients:\n")
+                        print = function() {
+                          #cat("Call:\n")
+                          string1 <- paste0('linreg(formula = ',Formulaf,", data = ", df_name,")") #lm(formula = Petal.Length ~ Species, data = iris)
+                          #cat("Coefficients:\n")
                           #cat(beta)
-                          base::print(t(beta))
+                          base::print(string1)
+                          base::print(beta[,1])
+                          # should_print <- paste0('linreg(formula = ',Formulaf)
+                          # should_print <- paste0(should_print,', data = ')
+                          # should_print <- paste0(should_print,df_name)
+                          # should_print <- paste0(should_print,')')
+                          # base::print(should_print)
+                          # base::print(beta[,1])
 
                         },
                         resid = function(){
@@ -61,20 +68,21 @@ linreg <- setRefClass("linreg",
                         },
 
                         coef = function(){
-                          coefs = list(beta, y_hat, e_hat, df, sigma_square, variance_beta, t_beta)
-                          names(coefs) = c("Regressions coefficients", "fitted values", "residuals", "degrees of freedom",
-                                           "residual variance", "variance of the regression coefficients",
-                                           "t-values for each coefficient")
-                          return(coefs)
+                           return(beta[,1])
                         },
 
                         summary = function(){
-                          # standard error, t-value and p-value as well as the estimate of σˆ and the degrees of freedom in the model.
-                          sum_coefs = list(e_hat, df, sigma_square, variance_beta, t_beta)
-                          names(sum_coefs) = c("residuals", "degrees of freedom",
-                                           "residual variance", "variance of the regression coefficients",
-                                           "t-values for each coefficient")
-                          base::print(sum_coefs)
+                          p_val = 2*pt(abs(t_beta),df = df,lower.tail = FALSE)
+                          std_e <- round((sqrt(diag(variance_beta))),3)
+                          #std_e <- sqrt(diag(variance_beta))
+                          df3 <- as.data.frame(matrix(c(round(beta,3), std_e, round(t_beta,3), format(p_val, scientific = 2)), ncol = 4))
+                          for(i in 1:ncol(X)){
+                            df3[i,5]<-"***"
+                          }
+                          colnames(df3) <- c("Estimate", "Std. Error", "t value", "Pr(>|t|)","")
+                          rownames(df3) <- rownames(beta)
+                          base::print(df3)
+                          base::print(paste("Residual standard error:", round(sqrt(sigma_square),3), "on", df, "degrees of freedom"))
                         },
 
                         plot = function(){
