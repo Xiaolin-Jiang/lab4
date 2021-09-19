@@ -1,0 +1,78 @@
+---
+title: "lab4"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{lab4}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(lab4)
+```
+
+
+# Overview
+lab4 is a package to handle linear regression models. It can handle functions such as print(), plot(), resid(), pred(), coef() and summary().
+
+# Import
+
+```{r}
+    library(lab4)
+```
+
+# Methods
+
+The example below is to introduce how these functions work
+`linreg()` takes two parameter, Form : formula; data :  a data.frame  
+
+```{r}
+linreg_mod <- linreg$new(Form = Petal.Length~Species, data=iris)
+```
+
+The `print()` prints out the vector containing coefficients.
+
+```{r}
+linreg_mod$print()
+```
+
+The `plot()`  plots such pictures(package ggplot2 is needed here)
+
+```{r}
+linreg_mod$plot()
+```
+
+The `resid()` returns the vector of residuals.
+
+```{r}
+head(linreg_mod$resid())
+```
+
+The `pred()` returns the predicted values.
+
+```{r}
+head(linreg_mod$pred())
+```
+
+The `coef()` returns the coefficients as a named vector.
+
+```{r}
+linreg_mod$coef()
+```
+
+The `summary()`  returns a similar printout as printed for lm objects, but you only need to present
+the coefficients with their standard error, t-value and p-value as well as the estimate of ˆσ and the degrees
+of freedom in the model.
+
+```{r}
+linreg_mod$summary()
+```
