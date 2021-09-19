@@ -2,7 +2,6 @@ Package: lab4
 Type: Package
 Title: lab4
 Version: 1.0
-Date: 2021-09-12
 Author: Xiaolin Jiang
 Maintainer: Xiaolin Jiang <xiaji389@student.liu.se>
 Description: calculate the statistics using ordinary least squares
@@ -16,7 +15,6 @@ Suggests:
     rmarkdown
 Imports: methods,ggplot2,plyr
 NeedsCompilation: no
-Packaged: 2021-08-28 18:42:30 UTC; 33817
 Depends: R (>= 3.5.0)
 Config/testthat/edition: 3
 VignetteBuilder: knitr
