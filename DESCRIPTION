@@ -4,15 +4,19 @@ Title: lab4
 Version: 1.0
 Date: 2021-09-12
 Author: Xiaolin Jiang
-Maintainer: Who to complain to <xiaji389@student.liu.se>
+Maintainer: Xiaolin Jiang <xiaji389@student.liu.se>
 Description: calculate the statistics using ordinary least squares
-License: GPL-2
+License: GPL
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1
 Suggests: 
-    testthat (>= 3.0.0)
+    testthat,
+    knitr,
+    rmarkdown
+Imports: methods,ggplot2,plyr
 NeedsCompilation: no
 Packaged: 2021-08-28 18:42:30 UTC; 33817
 Depends: R (>= 3.5.0)
 Config/testthat/edition: 3
+VignetteBuilder: knitr
