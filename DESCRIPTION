@@ -1,7 +1,7 @@
 Package: lab4
 Type: Package
 Title: lab4
-Version: 1.0
+Version: 0.1.0
 Author: Xiaolin Jiang
 Maintainer: Xiaolin Jiang <xiaji389@student.liu.se>
 Description: calculate the statistics using ordinary least squares
