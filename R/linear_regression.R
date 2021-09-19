@@ -114,7 +114,7 @@ linreg <- setRefClass("linreg",
                             ggplot2::geom_point(size=2,shape=21)+
                             ggplot2::labs(x=paste0("Fitted values \n linreg(", Formulaf, ")"),
                                           y = "sqrt(|Standardized Residuals|))") +
-                            ggplot2::labs(title = "Scale−Location")+
+                            ggplot2::labs(title = "Scale-Location")+
                             ggplot2::stat_summary(fun = median, geom = "line", color = "red")+
                             ggplot2::theme_test()+
                             ggplot2::theme(plot.title = ggplot2::element_text(hjust=0.5))
