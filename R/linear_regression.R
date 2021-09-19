@@ -1,10 +1,19 @@
 #' calculate the statistics using ordinary least squares
 #'
-#' @param formula .
-#' @param data A dataframe.
-#' @return the statistics using ordinary least squares.
-#' @examples
-#' linreg(formula, data)
+#' @field beta: regression coefficient
+#' @field y_hat: fitted value
+#' @field e_hat : residuals (e with a hat)
+#' @field df : degree of fredom
+#' @field sigma_square: variance of residuals
+#' @field variance_beta: variance of regression coefficient
+#' @field t_beta: t value of regression coefficient
+#' @field Form: input formula
+#' @field data : input dataframe(the data reference of formula)
+#' @field dfname: name of dataframe
+#' @field Formulaf : string of formula(without bracket)
+#' @field X: created by model.matrix()
+#' @field y: true value in dataframe not estimated value
+#'
 #' @import methods
 #' @importFrom ggplot2 ggplot
 #' @importFrom plyr is.formula
